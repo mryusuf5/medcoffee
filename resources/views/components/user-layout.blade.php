@@ -64,9 +64,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
                         </p>
                         <p class="footer-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Build by Yusuf Yildiz</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright MedCoffee &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Build by Yusuf Yildiz</a>
                         </p>
                     </div>
                 </div>
