@@ -1,0 +1,26 @@
+.headerLogo{
+    width: 150px;
+}
+
+.contactMessages{
+    left: 80%;
+    top: 50%;
+}
+
+.editImage{
+    width: 100%;
+}
+
+.tableImage{
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 992px) {
+    .editImage{
+        width: 50%;
+    }
+}
