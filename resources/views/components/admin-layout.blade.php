@@ -75,12 +75,19 @@
                         <div data-i18n="Analytics">Website</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link gap-2">
+                <li class="menu-item {{Route::is('admin.productcategories.index')
+                                        || Route::is('admin.productcategories.show') ? 'active' : ''}}">
+                    <a href="{{route('admin.productcategories.index')}}" class="menu-link gap-2">
                         <i class="fa-solid fa-sitemap text-primary"></i>
-                        <div data-i18n="Analytics">Producten</div>
+                        <div data-i18n="Analytics">Product categorieën</div>
                     </a>
                 </li>
+{{--                <li class="menu-item">--}}
+{{--                    <a href="#" class="menu-link gap-2">--}}
+{{--                        <i class="fa-solid fa-mug-saucer text-primary"></i>--}}
+{{--                        <div data-i18n="Analytics">Producten</div>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 {{--                <li class="menu-item">--}}
 {{--                    <a href="#" class="menu-link gap-2">--}}
 {{--                        <i class="fa-solid fa-dumbbell text-primary"></i>--}}
@@ -138,6 +145,15 @@
 
                 <div class="container-fluid flex-grow-1 container-p-y">
                     <!-- Layout Demo -->
+                    @if($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <h3 class="text-success">{{$message}}</h3>
+                        </div>
+                    @endif
+                    <h3>{{$title ?? ''}}</h3>
+                    @isset($backRoute)
+                        <a href="{{$backRoute}}" class="btn btn-primary mb-4"><i class="fa-solid fa-angle-left"></i> Terug</a>
+                    @endisset
                     {{$slot}}
                     <!--/ Layout Demo -->
                 </div>

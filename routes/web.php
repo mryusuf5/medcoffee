@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductCategoriesController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,6 @@ Route::prefix('/admin')->name('admin.')->middleware('admin')->group(function(){
         return view('admin.dashboard');
     });
     Route::get('logout', [UserController::class, 'logout'])->name('logout');
+    Route::resource('productcategories', ProductCategoriesController::class);
+    Route::resource('products', ProductsController::class);
 });

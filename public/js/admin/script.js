@@ -9,7 +9,7 @@ confirmForm.forEach((e) => {
             showCancelButton: true,
             cancelButtonText: 'Nee',
             confirmButtonText: 'Ja',
-            confirmButtonColor: '#03C3EC',
+            confirmButtonColor: '#696CFF',
             cancelButtonColor: '#FF3E1D'
         }).then(result => {
             if(result.isConfirmed)

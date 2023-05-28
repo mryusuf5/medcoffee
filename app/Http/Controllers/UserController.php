@@ -12,7 +12,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
         return view('admin.user.index');
     }
@@ -65,7 +65,7 @@ class UserController extends Controller
         //
     }
 
-    public function login(Request $request): \Illuminate\Http\RedirectResponse
+    public function login(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -73,16 +73,22 @@ class UserController extends Controller
         ]);
         $user = User::where('name', $request->name)->first();
 
-        if($user->password === $request->password)
+        if(!$user)
         {
-            Session::put('admin', $user);
-            return redirect()->route('admin.');
+            return redirect()->route('user.index');
         }
 
-        return redirect()->route('user.index');
+        if($user->password != $request->password)
+        {
+            return redirect()->route('user.index');
+        }
+
+        Session::put('admin', $user);
+        return redirect()->route('admin.');
+
     }
 
-    public function logout(): \Illuminate\Http\RedirectResponse
+    public function logout()
     {
         Session::remove('admin');
         return redirect()->route('user.index');
