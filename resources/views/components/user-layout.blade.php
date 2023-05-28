@@ -39,15 +39,13 @@
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#coffee">Coffee</a></li>
-                        <li><a href="#review">Review</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li class="menu-has-children"><a href="">Pages</a>
-                            <ul>
-                                <li><a href="generic.html">Generic</a></li>
-                                <li><a href="elements.html">Elements</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#coffee">Products</a></li>
+{{--                        <li class="menu-has-children"><a href="">Pages</a>--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="generic.html">Generic</a></li>--}}
+{{--                                <li><a href="elements.html">Elements</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -90,10 +88,9 @@
                         <h6>Follow Us</h6>
                         <p>Let us be social</p>
                         <div class="footer-social d-flex align-items-center">
+                            <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
                         </div>
                     </div>
                 </div>

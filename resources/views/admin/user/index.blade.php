@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Design by foolishdeveloper.com -->
-    <title>Glassmorphism login Form Tutorial in html css</title>
+    <title>MedCoffee</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
@@ -62,6 +62,9 @@
             border: 2px solid rgba(255,255,255,0.1);
             box-shadow: 0 0 40px rgba(8,7,16,0.6);
             padding: 50px 35px;
+        }
+        a{
+            font-family: 'Poppins',sans-serif;
         }
         form *{
             font-family: 'Poppins',sans-serif;
@@ -134,6 +137,11 @@
     </style>
 </head>
 <body>
+<br>
+<br>
+<br>
+<a href="{{route('home')}}" style="background: #1845ad; margin: 16px; padding: 16px 32px; border-radius: 20px; color: #fff2d6;
+text-decoration: none">Back</a>
 <div class="background">
     <div class="shape"></div>
     <div class="shape"></div>
