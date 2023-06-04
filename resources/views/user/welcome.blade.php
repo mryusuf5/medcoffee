@@ -161,7 +161,9 @@
                     </div>
                 </div>
             </div>
+            <a href="{{route('userProducts')}}" class="btn btn-primary float-right">View all products</a>
         </div>
+
     </section>
     <section class="gallery-area section-gap" id="gallery">
         <div class="container">

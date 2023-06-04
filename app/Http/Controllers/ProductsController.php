@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductCategories;
 use App\Models\Products;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -110,9 +112,43 @@ class ProductsController extends Controller
     {
         if($request->file('image'))
         {
-            $imageName = 'category-' . time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imageName = 'product-' . time() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move('img/product/', $imageName);
             $product->image = $imageName ?? '0';
         }
+    }
+
+    public function userProducts()
+    {
+        $products = Products::all();
+        $categories = ProductCategories::all();
+        return view('user.products.index', compact(
+            'products',
+            'categories'
+        ));
+    }
+
+    public function userShowProduct($id)
+    {
+        $product = Products::where('id', $id)->firstOrFail();
+        $reviews = Reviews::where('product_id', $id)->get();
+        $totalScore = 0;
+        $averageScore = 0;
+
+        if(count($reviews) > 0)
+        {
+            foreach($reviews as $review)
+            {
+                $totalScore += $review->score;
+            }
+
+            $averageScore = 2 * ($totalScore / count($reviews));
+        }
+
+        return view('user.products.show', compact(
+            'product',
+            'reviews',
+            'averageScore'
+        ));
     }
 }
