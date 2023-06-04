@@ -41,7 +41,7 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="{{route('home')}}">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#coffee" class="fs-2">Products</a></li>
+                    <li><a href="{{route('home')}}#coffee" class="fs-2">Products</a></li>
                     <li>
                         <a href="{{route('cart')}}">
                             <div class="d-flex align-items-center">

@@ -36,7 +36,7 @@ class ProductsController extends Controller
         ]);
 
         $product = new Products();
-        $product->name = $request->name;
+        $product->name = ucfirst($request->name);
         $price = str_replace(',', '.', $request->price);
         $product->price = $price;
         $product->description = $request->description ?? '0';
@@ -122,16 +122,18 @@ class ProductsController extends Controller
     {
         $products = Products::all();
         $categories = ProductCategories::all();
+        $selectedCategory = -1;
         return view('user.products.index', compact(
             'products',
-            'categories'
+            'categories',
+            'selectedCategory'
         ));
     }
 
     public function userShowProduct($id)
     {
         $product = Products::where('id', $id)->firstOrFail();
-        $reviews = Reviews::where('product_id', $id)->get();
+        $reviews = Reviews::where('product_id', $id)->orderby('created_at', 'DESC')->get();
         $totalScore = 0;
         $averageScore = 0;
 

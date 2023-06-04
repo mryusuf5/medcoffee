@@ -30,8 +30,12 @@
                                     <h5 class="card-title">{{$category->name}}</h5>
                                 </div>
                                 <div class="mt-2">
-                                    <a id="{{$category->id}}" href="{{route('showCategory', $category->id)}}"
-                                       class="btn btn-primary w-100 category-button">See products</a>
+                                    @if($selectedCategory == $category->id)
+                                        <a href="#" class="btn btn-primary disabled w-100 category-button">Selected</a>
+                                    @else
+                                        <a id="{{$category->id}}" href="{{route('showCategory', $category->id)}}"
+                                           class="btn btn-primary w-100 category-button">See products</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

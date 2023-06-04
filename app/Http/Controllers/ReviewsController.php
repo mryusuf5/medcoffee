@@ -35,9 +35,14 @@ class ReviewsController extends Controller
         ]);
 
         $review = new Reviews();
-
+        $name = explode(' ', $request->name);
         $review->score = $request->score;
-        $review->name = $request->name;
+
+        foreach($name as $n)
+        {
+            $review->name .= ucfirst($n) . ' ';
+        }
+
         $review->review = $request->review;
         $review->product_id = $request->product_id;
         $review->save();
