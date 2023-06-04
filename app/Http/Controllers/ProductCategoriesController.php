@@ -13,7 +13,7 @@ class ProductCategoriesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
         $categories = ProductCategories::all();
         $title = 'Product categorieën';
@@ -49,7 +49,7 @@ class ProductCategoriesController extends Controller
         ]);
 
         $productCategory = new ProductCategories();
-        $productCategory->name = $request->name;
+        $productCategory->name = ucfirst($request->name);
 
         if($request->file('image'))
         {
@@ -120,6 +120,7 @@ class ProductCategoriesController extends Controller
     public function destroy($id)
     {
         ProductCategories::destroy($id);
+        Products::where('category_id', $id)->delete();
 
         return redirect()->route('admin.productcategories.index')->with('success', 'Categorie verwijderd');
     }
@@ -138,8 +139,18 @@ class ProductCategoriesController extends Controller
     {
         $products = Products::where('category_id', $id)->get();
         $categories = ProductCategories::all();
+        $selectedCategory = -1;
 
-        return view('user.products.index', compact('products', 'categories'));
+        if(isset($id))
+        {
+            $selectedCategory = $id;
+        }
+
+        return view('user.products.index', compact(
+            'products',
+            'categories',
+        'selectedCategory'
+        ));
 //        return json_encode(['items' => $products]);
     }
 }
