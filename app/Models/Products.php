@@ -11,6 +11,8 @@ class Products extends Model
     use HasFactory;
     use Sortable;
 
+    protected $table = 'products';
+
     public $sortable = [
         'name', 'stock', 'price'
     ];

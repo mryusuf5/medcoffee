@@ -133,4 +133,13 @@ class ProductCategoriesController extends Controller
             $productCategory->image = $imageName;
         }
     }
+
+    public function userShowCategory($id)
+    {
+        $products = Products::where('category_id', $id)->get();
+        $categories = ProductCategories::all();
+
+        return view('user.products.index', compact('products', 'categories'));
+//        return json_encode(['items' => $products]);
+    }
 }

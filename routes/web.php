@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductCategoriesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\CartsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,17 @@ Route::get('/', function () {
 
 Route::resource('user', UserController::class);
 Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/products', [ProductsController::class, 'userProducts'])->name('userProducts');
+Route::get('/products/{id}', [ProductCategoriesController::class, 'userShowCategory'])->name('showCategory');
+Route::get('/products/{id}/show', [ProductsController::class, 'userShowProduct'])->name('showProduct');
+Route::resource('reviews', ReviewsController::class);
+
+Route::prefix('/cart')->group(function(){
+    Route::post('/store', [CartsController::class, 'store'])->name('cartStore');
+    Route::get('/empty', [CartsController::class, 'empty_cart']);
+    Route::get('/', [CartsController::class, 'index'])->name('cart');
+    Route::post('/delete/{index}', [CartsController::class, 'delete'])->name('cartDelete');
+});
 
 
 Route::prefix('/admin')->name('admin.')->middleware('admin')->group(function(){
